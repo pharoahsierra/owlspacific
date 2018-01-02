@@ -36,8 +36,9 @@ function loadJSON(url) {
   
   
 $('button').click(function(){
-  alert('Button clicked!');
+  
   var morejson = loadJSON("http://owlspacific.x10host.com/petdata.php");
+  alert(morejson);
   $('#pTest').text('test');
   
 

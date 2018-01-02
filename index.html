@@ -32,12 +32,26 @@ function loadJSON(url) {
   
 }
 
+function getJSON(url) {
+    var request = new XMLHttpRequest();
 
+    request.overrideMimeType("application/json");
+    request.open('POST', url, false);
+
+  
+  var strJson = JSON.stringify({ email: 'hello@user.com', response: { name: 'Tester' } });
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  request.send('json='+strJson);
+    if (request.readyState === 4 && request.status === 200)
+
+        return request.responseText;
+  
+}
   
   
 $('button').click(function(){
   
-  var morejson = loadJSON("http://owlspacific.x10host.com/petdata.php");
+  var morejson = loadJSON("http://owlspacific.x10host.com/userdata.php?id=1");
   alert(morejson);
   $('#pTest').text('test');
   
